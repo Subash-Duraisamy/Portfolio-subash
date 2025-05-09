@@ -1,193 +1,174 @@
 .home-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100vh;
-    padding: 0 50px;
-    background: #f5f5f5;
-  }
-  
-  /* Default: desktop */
-  .home-left {
-    flex: 1;
-  }
-  
-  /* .name-title {
-    font-size: 4rem;
-    font-family: 'Georgia', serif;
-    color: #333;
-  } */
-   .name-title {
- 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  padding: 0 50px;
+  background: #f5f5f5;
+}
+
+/* Default: desktop */
+.home-left {
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pendulum-text {
+  font-size: 2rem; /* Larger subtitle */
+  color: #4b3621; /* wood-like dark brown */
+  font-family: 'Courier New', monospace;
+  display: inline-block;
+  transform-origin: top center;
+  animation: slowPendulum 5s infinite ease-in-out;
+  position: relative;
+  margin-top: 15px;
+  margin-left: 40px; /* Shift to the right */
+}
+
+@keyframes swing {
+  0% { transform: rotate(10deg); }
+  50% { transform: rotate(-10deg); }
+  100% { transform: rotate(10deg); }
+}
+
+.home-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.name-title {
+  font-size: 58px;
+  font-family: 'Pacifico', cursive;
   font-weight: bold;
   color: #333;
-  margin-left: 40px; /* Shift to the right */
+  margin-left: 40px;
   position: relative;
-  font-family: 'Georgia', serif;
 }
-/*   
-  .pendulum-text {
-    font-size: 1.5rem;
-    color: #0077ff;
-    animation: swing 2s infinite ease-in-out;
-    transform-origin: top center;
-    display: inline-block;
-    margin-top: 10px;
-  } */
-  .pendulum-text {
-    font-size: 2rem; /* Larger subtitle */
-    color: #4b3621; /* wood-like dark brown */
-    font-family: 'Courier New', monospace;
-    display: inline-block;
-    transform-origin: top center;
-    animation: slowPendulum 5s infinite ease-in-out;
-    position: relative;
-    margin-top: 15px;
-    margin-left: 40px; /* Shift to the right */
-  }
-  
-  @keyframes swing {
-    0% { transform: rotate(10deg); }
-    50% { transform: rotate(-10deg); }
-    100% { transform: rotate(10deg); }
-  }
-  
-  .home-right {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .profile-img {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* 📱 Mobile View: stack vertically */
-  @media (max-width: 768px) {
-    .home-container {
-      flex-direction: column;
-      padding: 20px;
-      height: auto;
-    }
-  
-    .home-right,
-    .home-left {
-      width: 100%;
-      text-align: center;
-      margin: 20px 0;
-    }
-  
-   
-  
-    .profile-img {
-      width: 200px;
-      height: 200px;
-    }
-  }
 
-  /* .pendulum-text {
-    font-size: 1.5rem; */
-    /* color: #4b3621; 
-    display: inline-block;
-    transform-origin: top center;
-    animation: brokenSwing 2.2s infinite ease-in-out;
-    font-family: 'Courier New', monospace;
-    position: relative;
-    margin-top: 10px;
-  } */
-  
-  /* Optional: hanging ropes (for decoration) */
-  /* .pendulum-text::before {
-    content: '';
-    width: 2px;
-    height: 20px;
-    background: #000;
-    position: absolute;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-   */
-  /* @keyframes brokenSwing {
-    0%   { transform: rotate(8deg); }
-    25%  { transform: rotate(-6deg); }
-    50%  { transform: rotate(10deg); }
-    75%  { transform: rotate(-4deg); }
-    100% { transform: rotate(8deg); }
-  } */
-
-  .pendulum-text {
-    font-size: 1.5rem;
-    color: #4b3621; /* wood-like dark brown */
-    font-family: 'Indie Flower',cursive;
-   /* font-family: 'Fira Code', monospace; */
-    display: inline-block;
-    transform-origin: top center;
-    animation: slowPendulum 5s infinite ease-in-out;
-    position: relative;
-    margin-top: 10px;
-  }
-  
-  .pendulum-text::before {
-    content: '';
-    width: 2px;
-    height: 20px;
-    background: #000;
-    position: absolute;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
-  @keyframes slowPendulum {
-    0%   { transform: rotate(5deg); }
-    25%  { transform: rotate(-3deg); }
-    50%  { transform: rotate(6deg); }
-    75%  { transform: rotate(-2deg); }
-    100% { transform: rotate(5deg); }
-  }
-  
-  .home-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .home-left {
-    flex: 1;
-  }
-  
+/* Responsive override */
+@media (max-width: 768px) {
   .name-title {
-    font-size: 58px;
-      font-family: 'Pacifico', cursive;
-    font-weight: bold;
-    position: relative; /* For positioning the icon */
+    font-size: 42px;
+    margin-left: 0;
+    text-align: center;
   }
-  
-  .play-icon {
-    font-size: 16px; /* Small size for the play/pause icon */
-    position: absolute;
-    left: -20px; /* Moves the icon slightly before the last letter */
-    top: 0;
-    cursor: pointer;
+
+  .home-container {
+    flex-direction: column;
+    padding: 20px;
+    height: auto;
   }
-  
-  /* .pendulum-text {
-    font-size: 24px;
-    color: #666;
-  } */
-  
+
+  /* Mobile Quote - Below Image */
+  .home-left {
+    order: 1; /* This makes the left section (quote) come after the image */
+    text-align: center;
+  }
+
   .home-right {
-    flex: 1;
+    order: 0; /* This ensures the image comes before the quote */
   }
-  
+
   .profile-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
+    width: 200px;
+    height: 200px;
   }
-  
+
+  /* Hide Desktop Quote on Mobile */
+  .desktop-quote {
+    display: none;
+  }
+
+  .mobile-quote {
+    display: block;
+    margin-top: 20px;
+    font-family: 'Fira Code', monospace;
+    font-size: 1rem;
+    color: #555;
+    max-width: 300px;
+    line-height: 1.4;
+    font-style: italic;
+  }
+
+  /* Optional: Additional styling for quotes on mobile */
+  .mobile-quote {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 10px;
+    text-align: center;
+  }
+}
+
+/* Default: Hide Mobile Quote on Desktop */
+.mobile-quote {
+  display: none;
+}
+
+.desktop-quote {
+  display: block;
+}
+
+.pendulum-text {
+  font-size: 1.5rem;
+  color: #4b3621; /* wood-like dark brown */
+  font-family: 'Indie Flower', cursive;
+  display: inline-block;
+  transform-origin: top center;
+  animation: slowPendulum 5s infinite ease-in-out;
+  position: relative;
+  margin-top: 10px;
+}
+
+.pendulum-text::before {
+  content: '';
+  width: 2px;
+  height: 20px;
+  background: #000;
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@keyframes slowPendulum {
+  0%   { transform: rotate(5deg); }
+  25%  { transform: rotate(-3deg); }
+  50%  { transform: rotate(6deg); }
+  75%  { transform: rotate(-2deg); }
+  100% { transform: rotate(5deg); }
+}
+
+.play-icon {
+  font-size: 16px; /* Small size for the play/pause icon */
+  position: absolute;
+  left: -20px; /* Moves the icon slightly before the last letter */
+  top: 0;
+  cursor: pointer;
+}
+
+.intro-text {
+  font-size: 1.5rem;
+  font-family: 'Pacifico', cursive;
+  margin: 0;
+  color: #333;
+}
+
+.dev-quote {
+  font-family: 'Fira Code', monospace;
+  font-size: 1rem;
+  color: #555;
+  margin-top: 10px;
+  max-width: 300px;
+  line-height: 1.4;
+  font-style: italic;
+}
