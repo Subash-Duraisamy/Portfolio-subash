@@ -1,0 +1,49 @@
+/* App.css or index.css */
+.right-navbar {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    z-index: 1000;
+  }
+  
+  .right-navbar ul {
+    list-style: none; /* This removes the bullets */
+    padding: 0;       /* Removes any default padding */
+    margin: 0;        /* Removes any default margin */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .right-navbar li {
+    padding: 10px;
+    margin: 5px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .right-navbar a {
+    text-decoration: none;
+    color: gray;
+    font-weight: bold;
+  }
+  
+  /* Highlight active section */
+  .right-navbar li.active {
+    background-color: skyblue;
+    color: white;
+  }
+  
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Responsive adjustment */
+  @media (max-width: 768px) {
+    .right-navbar {
+      right: 10px;
+    }
+  }
+  
