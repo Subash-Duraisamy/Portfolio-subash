@@ -6,34 +6,34 @@ function Home() {
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  useEffect(() => {
-    const handleInteraction = () => {
-      if (audioRef.current) {
-        audioRef.current.play().catch(err => {
-          console.warn("Still blocked:", err);
-        });
-      }
+  // useEffect(() => {
+  //   const handleInteraction = () => {
+  //     if (audioRef.current) {
+  //       audioRef.current.play().catch(err => {
+  //         console.warn("Still blocked:", err);
+  //       });
+  //     }
 
-      // Remove event listeners once the audio starts playing
-      window.removeEventListener('click', handleInteraction);
-      window.removeEventListener('scroll', handleInteraction);
-    };
+  //     // Remove event listeners once the audio starts playing
+  //     window.removeEventListener('click', handleInteraction);
+  //     window.removeEventListener('scroll', handleInteraction);
+  //   };
 
-    // Attach event listeners to detect user interaction (click or scroll)
-    window.addEventListener('click', handleInteraction);
-    window.addEventListener('scroll', handleInteraction);
+  //   // Attach event listeners to detect user interaction (click or scroll)
+  //   window.addEventListener('click', handleInteraction);
+  //   window.addEventListener('scroll', handleInteraction);
 
-    return () => {
-      // Clean up event listeners when the component unmounts
-      window.removeEventListener('click', handleInteraction);
-      window.removeEventListener('scroll', handleInteraction);
+  //   return () => {
+  //     // Clean up event listeners when the component unmounts
+  //     window.removeEventListener('click', handleInteraction);
+  //     window.removeEventListener('scroll', handleInteraction);
 
-      // Pause the audio if the component is unmounted
-      if (audioRef.current) {
-        audioRef.current.pause();
-      }
-    };
-  }, []);
+  //     // Pause the audio if the component is unmounted
+  //     if (audioRef.current) {
+  //       audioRef.current.pause();
+  //     }
+  //   };
+  // }, []);
 
   // Function to handle play/pause
   const handlePlayPause = () => {
@@ -49,7 +49,7 @@ function Home() {
 
   return (
     <div className="home-container">
-      <audio ref={audioRef} src="/door_creaky.mp3" loop preload="auto" />
+      {/* <audio ref={audioRef} src="/door_creaky.mp3" loop preload="auto" /> */}
       
       <div className="home-left">
         <h1 className="name-title">Subash D</h1>
