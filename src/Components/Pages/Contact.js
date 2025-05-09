@@ -1,9 +1,13 @@
-import React from 'react'
+// Contact.js
+import React from 'react';
+import './Contact.css'; // Ensure this matches your folder structure
 
 const Contact = () => {
   return (
-    <div>Contact</div>
-  )
-}
+    <div className="contactpage-container">
+      <div className="contactpage-hanging-title">Contact</div>
+    </div>
+  );
+};
 
-export default Contact
+export default Contact;
