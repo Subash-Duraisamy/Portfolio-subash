@@ -1,6 +1,7 @@
 /* App.css or index.css */
 .right-navbar {
     position: fixed;
+     font-family: 'Indie Flower', cursive;
     top: 50%;
     right: 20px;
     transform: translateY(-50%);
@@ -8,6 +9,7 @@
   }
   
   .right-navbar ul {
+    
     list-style: none; /* This removes the bullets */
     padding: 0;       /* Removes any default padding */
     margin: 0;        /* Removes any default margin */
@@ -17,13 +19,17 @@
   }
   
   .right-navbar li {
+     font-family: 'Indie Flower', cursive;
     padding: 10px;
     margin: 5px 0;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
+
+  
   
   .right-navbar a {
+    
     text-decoration: none;
     color: gray;
     font-weight: bold;

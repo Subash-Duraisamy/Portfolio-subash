@@ -15,7 +15,7 @@ function Coin() {
         width: '40px',
         height: '40px',
         borderRadius: '50%',
-        background: 'red',
+        background: 'grey',
         opacity: isDragging ? 0.5 : 1,
         cursor: 'grab',
       }}

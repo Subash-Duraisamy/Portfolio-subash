@@ -22,6 +22,7 @@ function NavbarItem({ sectionId, label, isActive, onDrop }) {
         borderRadius: '10px',
         cursor: isOver ? 'move' : 'pointer',
         transition: 'background-color 0.3s ease',
+        fontFamily: "'Indie Flower', cursive"
       }}
     >
       {label}
