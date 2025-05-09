@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   padding: 0 50px;
   background: #f5f5f5;
 }
@@ -26,11 +26,6 @@
   margin-left: 40px; /* Shift to the right */
 }
 
-@keyframes swing {
-  0% { transform: rotate(10deg); }
-  50% { transform: rotate(-10deg); }
-  100% { transform: rotate(10deg); }
-}
 
 .home-right {
   flex: 1;

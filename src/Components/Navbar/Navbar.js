@@ -9,8 +9,10 @@ const sections = [
   { id: 'contact', label: 'Contact' },
 ];
 
+
 function Navbar() {
   const [activeSection, setActiveSection] = useState(null);
+  const [droppedOn, setDroppedOn] = useState(null);
 
   // Function to check which section is in the viewport
   const handleScroll = () => {
@@ -38,10 +40,21 @@ function Navbar() {
   }, []);
 
   // Function to handle on drop
+  // const handleDrop = (sectionId) => {
+  //   setActiveSection(sectionId);
+  //   document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+  // };
   const handleDrop = (sectionId) => {
-    setActiveSection(sectionId);
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-  };
+  setActiveSection(sectionId);
+  setDroppedOn(sectionId); // 👈 Set which section the coin is over
+
+  // Reset coin back after 1 second
+  setTimeout(() => {
+    setDroppedOn(null);
+  }, 1000);
+
+  document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+};
 
   return (
     <div className="right-navbar">
@@ -53,7 +66,9 @@ function Navbar() {
             sectionId={sec.id}
             label={sec.label}
             isActive={activeSection === sec.id}
-            onDrop={() => handleDrop(sec.id)} // Pass the onDrop handler to NavbarItem
+            onDrop={() => handleDrop(sec.id)} 
+            showCoin={droppedOn === sec.id} 
+            // Pass the onDrop handler to NavbarItem
           />
         ))}
       </ul>

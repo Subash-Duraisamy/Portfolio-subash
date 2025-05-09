@@ -21,7 +21,7 @@ function Home() {
 
       {/* Right Section (Image and Mobile Quote) */}
       <div className="home-right">
-        <img src="/dev.png" alt="profile" className="profile-img" />
+        <img src="/dev.jpg" alt="profile" className="profile-img" />
 
         {/* Mobile-only quote */}
         <div className="mobile-quote">
