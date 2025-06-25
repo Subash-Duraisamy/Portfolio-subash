@@ -1,26 +1,25 @@
-/* Background container */
 .about-wrapper-container {
   position: relative;
   width: 100%;
-   min-height: 100vh;
-  background: #f5f5f5; /* Use the same background or change as needed */
-  overflow: hidden;
-   padding: 50px;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #f8fafc, #e0f2fe);
+  padding: 60px 20px 20px;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Swinging "About" header */
 .about-swinging-label {
   position: absolute;
   top: 20px;
   left: 20px;
   font-size: 2rem;
-  color: #222;
+  color: #1e293b;
   font-family: 'Indie Flower', cursive;
   animation: aboutLabelSwing 4s infinite ease-in-out;
   transform-origin: top center;
+  z-index: 10;
 }
 
-/* Hanging string above the text */
 .about-swinging-label::before {
   content: '';
   position: absolute;
@@ -32,7 +31,6 @@
   transform: translateX(-50%);
 }
 
-/* Swing animation */
 @keyframes aboutLabelSwing {
   0%   { transform: rotate(5deg); }
   25%  { transform: rotate(-5deg); }
@@ -40,3 +38,74 @@
   75%  { transform: rotate(-5deg); }
   100% { transform: rotate(5deg); }
 }
+
+.about-content {
+  margin-top: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  padding-bottom: 40px;
+}
+
+.about-section {
+  width: 300px;
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #e5e7eb;
+}
+
+.about-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+.about-section h2 {
+  font-size: 1.4rem;
+  margin-bottom: 6px;
+  color: #0f172a;
+}
+
+.about-section p {
+  font-size: 0.95rem;
+  color: #475569;
+  margin-bottom: 10px;
+}
+
+.about-img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease;
+}
+
+.about-img:hover {
+  transform: scale(1.03);
+}
+
+/* Mobile Responsive */
+@media (max-width: 640px) {
+  .about-section {
+    width: 100%;
+  }
+
+  .about-swinging-label {
+    font-size: 1.6rem;
+    left: 16px;
+  }
+}
+.about-hobbies-title {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.2rem;
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 30px;
+  color: #1f2937;
+}
+

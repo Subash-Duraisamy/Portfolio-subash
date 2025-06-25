@@ -5,7 +5,7 @@ const projects = [
   {
     id: 1,
     name: "To-do Application",
-    description: "An AI-powered assistant that helps farmers monitor soil, weather, and irrigation.",
+    description: " helps to manage and maintain our regular schedules.",
      image: "/todo_2.png",
     link: "https://figual-todo.netlify.app/"
   },

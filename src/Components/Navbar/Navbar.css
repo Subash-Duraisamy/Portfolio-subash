@@ -1,60 +1,66 @@
-/* App.css or index.css */
-.right-navbar {
-    position: fixed;
-     font-family: 'Indie Flower', cursive;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-    z-index: 1000;
-  }
-  
-  .right-navbar ul {
-    
-    list-style: none; /* This removes the bullets */
-    padding: 0;       /* Removes any default padding */
-    margin: 0;        /* Removes any default margin */
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .right-navbar li {
-     font-family: 'Indie Flower', cursive;
-    padding: 10px;
-    margin: 5px 0;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
+.menu-wrapper {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 2000;
+}
 
-  
-  
-  .right-navbar a {
-    
-    text-decoration: none;
-    color: gray;
-    font-weight: bold;
+.menu-toggle {
+  font-size: 2rem;
+  color: #333;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  z-index: 2100;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 200px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(6px);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: fadeSlideIn 0.3s ease-out forwards;
+}
+
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  /* Highlight active section */
-  .right-navbar li.active {
-    background-color: skyblue;
-    color: white;
-  }
-  
-  /* Smooth scrolling */
-  html {
-    scroll-behavior: smooth;
-  }
-  
-  /* Responsive adjustment */
-  @media (max-width: 768px) {
-    .right-navbar {
-      right: 10px;
-    }
-  }
-  .right-navbar li.active {
+}
+
+.dropdown-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dropdown-menu li {
+  cursor: pointer;
+  font-family: 'Indie Flower', cursive;
+  font-size: 1.1rem;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.dropdown-menu li:hover {
+  background-color: #e0f2fe;
+}
+
+.dropdown-menu li.active {
   background-color: skyblue;
   color: white;
 }
-
-  
