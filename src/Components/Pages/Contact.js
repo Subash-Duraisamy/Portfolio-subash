@@ -1,6 +1,6 @@
 import React from 'react';
 import './Contact.css';
-import { FaInstagram, FaYoutube, FaFacebook, FaEnvelope } from 'react-icons/fa';
+import { FaInstagram, FaYoutube, FaFacebook, FaEnvelope, FaSpotify } from 'react-icons/fa';
 
 const Contact = () => {
   return (
@@ -28,16 +28,6 @@ const Contact = () => {
           <span>Boo and Victor</span>
         </a>
 
-        {/* <a
-          href="https://www.youtube.com/@Victor"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="contact-icon"
-        >
-          <FaYoutube className="icon" />
-          <span>Victor</span>
-        </a> */}
-
         <a
           href="https://www.facebook.com/yourfacebookname"
           target="_blank"
@@ -48,9 +38,22 @@ const Contact = () => {
           <span>subash D</span>
         </a>
 
-        <a href="mailto:subash111425@gmail.com" className="contact-icon">
+        <a
+          href="mailto:subash111425@gmail.com"
+          className="contact-icon"
+        >
           <FaEnvelope className="icon" />
           <span>subash111425@gmail.com</span>
+        </a>
+
+        <a
+          href="https://open.spotify.com/show/77QIpGbrQ9ZXiHM7cTL525?si=9Eyx57AcR5OT5edgmZHp5Q"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="contact-icon"
+        >
+          <FaSpotify className="icon" />
+          <span>Lala lala lala - Tamil podcast</span>
         </a>
       </div>
     </div>
