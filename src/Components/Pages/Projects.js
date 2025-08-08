@@ -11,14 +11,22 @@ const projects = [
   },
   {
     id: 2,
-    name: "Loan-connect Application",
-    description: "A farmer's social network and marketplace in one platform",
-    image: "/working.png",
-    link: "https://figual-todo.netlify.app/"
+    name: "Mood Music",
+    description: "The project addresses the challenge of enhancing the music listening experience by integrating emotional states into the recommendation process.",
+    image: "/wmood_music.png",
+    link: "https://figual-mood-music.netlify.app/"
   },
   {
     id: 3,
-    name: "Banking-Application",
+    name: "Furniture Store Web",
+    description: "A furniture store web description should highlight the quality and variety of furniture offered, emphasizing unique features and customization options",
+    image: "/working.png",
+    link: "https://figual-todo.netlify.app/"
+  }
+  ,
+  {
+    id: 4,
+    name: "Banking Application",
     description: "An Business networking banking application.",
     image: "/working.png",
     link: "https://figual-todo.netlify.app/"

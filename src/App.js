@@ -8,7 +8,7 @@ import Contact from './Components/Pages/Contact';
 
 function App() {
   return (
-    <div>
+    <div className="liquid-border-wrapper">
       <Navbar />
       <section id="home"><Home /></section>
       <section id="about"><About /></section>
