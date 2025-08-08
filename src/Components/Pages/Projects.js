@@ -13,7 +13,7 @@ const projects = [
     id: 2,
     name: "Mood Music",
     description: "The project addresses the challenge of enhancing the music listening experience by integrating emotional states into the recommendation process.",
-    image: "/wmood_music.png",
+    image: "/mood_music.png",
     link: "https://figual-mood-music.netlify.app/"
   },
   {
