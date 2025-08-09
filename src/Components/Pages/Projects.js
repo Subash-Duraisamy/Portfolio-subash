@@ -20,8 +20,8 @@ const projects = [
     id: 3,
     name: "Furniture Store Web",
     description: "A furniture store web description should highlight the quality and variety of furniture offered, emphasizing unique features and customization options",
-    image: "/working.png",
-    link: "https://figual-todo.netlify.app/"
+    image: "/furniture.png",
+    link: "https://figual-furniture.netlify.app/"
   }
   ,
   {
