@@ -1,11 +1,13 @@
 import React from 'react';
 import { useDrop } from 'react-dnd';
 
-function NavbarItem({ sectionId, label, isActive, onDrop, showCoin }) {
+function NavbarItem({ sectionId, label, isActive, onNavigate, onDropCoin, showCoin }) {
   const [{ isOver }, drop] = useDrop(() => ({
     accept: 'COIN',
     drop: () => {
-      onDrop();
+      if (typeof onDropCoin === 'function') {
+        onDropCoin(sectionId);
+      }
     },
     collect: (monitor) => ({
       isOver: !!monitor.isOver(),
@@ -16,7 +18,9 @@ function NavbarItem({ sectionId, label, isActive, onDrop, showCoin }) {
     <li
       ref={drop}
       onClick={() => {
-        onDrop();
+        if (typeof onNavigate === 'function') {
+          onNavigate(sectionId);
+        }
       }}
       style={{
         position: 'relative',

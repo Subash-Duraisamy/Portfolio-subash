@@ -1,4 +1,3 @@
-// Navbar.jsx
 import React, { useState, useEffect } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import NavbarItem from '../../NavbarItem';
@@ -18,14 +17,16 @@ function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
+
       sections.forEach((section) => {
         const element = document.getElementById(section.id);
         if (element) {
           const offsetTop = element.offsetTop;
           const offsetHeight = element.offsetHeight;
+
           if (
-            scrollPosition >= offsetTop - 100 &&
-            scrollPosition < offsetTop + offsetHeight - 100
+            scrollPosition >= offsetTop - 120 && // adjust offset for navbar height
+            scrollPosition < offsetTop + offsetHeight - 120
           ) {
             setActiveSection(section.id);
           }
@@ -37,10 +38,29 @@ function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleClick = (sectionId) => {
+  // ✅ Handles click navigation
+  const handleNavigate = (sectionId) => {
     setActiveSection(sectionId);
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offset = 80-75; // adjust this to your navbar height
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+    }
+
     setIsMenuOpen(false);
+  };
+
+  // ✅ Handles drag-drop event (optional, can trigger some action)
+  const handleDropCoin = (sectionId) => {
+    console.log(`Coin dropped on section: ${sectionId}`);
+    // you could trigger rewards, animations, etc.
   };
 
   return (
@@ -58,7 +78,8 @@ function Navbar() {
                 sectionId={sec.id}
                 label={sec.label}
                 isActive={activeSection === sec.id}
-                onDrop={() => handleClick(sec.id)}
+                onNavigate={handleNavigate}
+                onDropCoin={handleDropCoin}
               />
             ))}
           </ul>
