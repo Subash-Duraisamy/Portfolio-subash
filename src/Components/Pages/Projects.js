@@ -26,6 +26,14 @@ const projects = [
   ,
   {
     id: 4,
+    name: "Steganography Message",
+    description: "Steganography is the art of hiding secret messages inside ordinary files, such as images or text, so that the existence of the message is concealed. This tool allows users to encode and decode secret messages safely in both images and text using a secret key.",
+    image: "/steg.png",
+    link: "https://figual-steganography-tool.netlify.app/"
+  }
+  ,
+  {
+    id: 5,
     name: "Banking Application",
     description: "An Business networking banking application.",
     image: "/working.png",
