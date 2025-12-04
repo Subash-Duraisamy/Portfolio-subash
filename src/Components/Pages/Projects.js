@@ -38,6 +38,12 @@ const projects = [
     description: "An Business networking banking application.",
     image: "/working.png",
     link: "https://figual-todo.netlify.app/"
+  },{
+    id: 6,
+    name: "Career Compass",
+    description: "Career Compass is an intelligent web application designed to help students and early professionals discover the right career path based on their interests, skills, and personality traits. The platform uses Gemini AI, Python FastAPI backend, and a React frontend to generate personalized career recommendations, job-role insights, required skills, and step-by-step learning roadmaps.",
+    image: "/careercompass.png",
+    link: "https://figual-todo.netlify.app/"
   }
 ];
 
