@@ -45,6 +45,27 @@ const projects = [
     image: "/careercompass.png",
     link: "https://figual-career-compass.netlify.app/"
   }
+  ,{
+    id: 7,
+    name: "Skin Cancer Detection using ML",
+    description: "An intelligent web application that uses machine learning to detect skin cancer from images. The project leverages deep learning models to analyze skin lesions and provide early detection insights.",
+    image: "/working.png",
+    link: "https://figual-todo.netlify.app/"
+  }
+  ,{
+    id: 8,
+    name: "Stock Market analysis using AI&ML",
+    description: "An intelligent web application that uses machine learning to analyze stock market trends and predict future performance.",
+    image: "/working.png",
+    link: "https://figual-todo.netlify.app/"
+  }
+  ,{
+    id: 9,
+    name: "AI-Chat Event Manager for Mobile and Web app",
+    description: "An intelligent web application that uses AI to manage events and provide chat-based assistance for users.",
+    image: "/working.png",
+    link: "https://figual-todo.netlify.app/"
+  }
 ];
 
 const Projects = () => {

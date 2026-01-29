@@ -9,14 +9,17 @@ import ChatBot from './Components/AiBot/ChatBotFloating';
 
 function App() {
   return (
+    <>
+
     <div className="liquid-border-wrapper">
       <Navbar />
-      <ChatBot />
       <section id="home"><Home /></section>
       <section id="about"><About /></section>
       <section id="projects"><Projects /></section>
       <section id="contact"><Contact /></section>
     </div>
+      <ChatBot />
+    </>
   );
 }
 

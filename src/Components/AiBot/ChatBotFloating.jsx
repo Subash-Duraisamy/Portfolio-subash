@@ -1,65 +1,100 @@
-import React, { useState } from "react";
-import { projects } from "../AiBot/projectData";
+import React, { useEffect, useState } from "react";
 import "./ChatBotFloating.css";
+
+// 🔹 IMPORT YOUR AI IMAGE
+import figualAvatar from "../../Assets/figual.png";
 
 export default function ChatBotFloating() {
   const [open, setOpen] = useState(false);
-  const [message, setMessage] = useState("");
-  const [speaking, setSpeaking] = useState(false);
+  const [spoken, setSpoken] = useState(false);
 
   const speak = (text) => {
-    if (!window.speechSynthesis) {
-      alert("Sorry, your browser does not support speech synthesis.");
-      return;
-    }
-
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.rate = 1;
-    utterance.pitch = 1;
-    setSpeaking(true);
-    utterance.onend = () => setSpeaking(false);
-    speechSynthesis.cancel(); // stop previous speech
-    speechSynthesis.speak(utterance);
+    if (!window.speechSynthesis) return;
+    window.speechSynthesis.cancel();
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.rate = 0.95;
+    utter.pitch = 1;
+    window.speechSynthesis.speak(utter);
   };
 
-  const handleProjectClick = (id) => {
-    const project = projects[id];
-    if (project) {
-      const text = `This project is called ${project.title}. It uses ${project.tech}. ${project.description}`;
-      setMessage(text);
-      speak(text);
+  useEffect(() => {
+    if (open && !spoken) {
+      speak("Hi, I am Figual, an AI friend of Shoebash. What do you want now?");
+      setSpoken(true);
     }
-  };
+    if (!open) setSpoken(false);
+  }, [open]);
 
   return (
     <div className="chatbot-wrapper">
-      {/* Floating Button */}
-      <button className="chatbot-btn" onClick={() => setOpen(!open)}>
-        {open ? "✖" : "💬"}
+      {/* 🔹 FLOATING IMAGE BUTTON */}
+      <button
+        className="chatbot-btn chatbot-img-btn"
+        onClick={() => setOpen(!open)}
+        aria-label="Figual AI"
+      >
+        {open ? (
+          <span className="close-icon">✖</span>
+        ) : (
+          <img
+            src={figualAvatar}
+            alt="Figual AI"
+            className="chatbot-avatar"
+          />
+        )}
       </button>
 
-      {/* Chat Popup */}
+      {/* 🔹 POPUP */}
       {open && (
-        <div className="chatbot-popup">
-          <h4 className="chat-title">AI Project Guide 🤖</h4>
-          <div className="chat-buttons">
-            {Object.keys(projects).map((key) => (
-              <button
-                key={key}
-                onClick={() => handleProjectClick(key)}
-                className="chat-option"
-              >
-                {projects[key].title}
-              </button>
-            ))}
+        <div className="chatbot-popup figual-popup">
+          {/* AI HEADER */}
+          <div className="figual-header">
+            <img
+              src={figualAvatar}
+              alt="Figual"
+              className="figual-avatar-large"
+            />
+            <h4>Hey 👋 I’m Figual</h4>
           </div>
 
-          {message && (
-            <div className="chat-response">
-              <p>{message}</p>
-              {speaking && <p className="speaking-status">🔊 Speaking...</p>}
-            </div>
-          )}
+          <p className="figual-intro">
+            AI friend of <strong>Subash</strong><br />
+            
+          </p>
+
+          <div className="chat-buttons">
+            <a
+              href="mailto:subash@email.com"
+              className="chat-option figual-link"
+            >
+              Email Subash at iamyourjasper@gmail.com
+            </a>
+
+            <button
+              className="chat-option"
+              onClick={() => alert("Enroll clicked 🚀")}
+            >
+              🧾 Enroll with Figual (soon will be available)
+            </button>
+
+            <a
+              href="https://www.linkedin.com/in/subash-d-858704258/"
+              target="_blank"
+              rel="noreferrer"
+              className="chat-option figual-link"
+            >
+              💼 Follow on LinkedIn
+            </a>
+
+            <a
+              href="https://www.instagram.com/subash_official_insta?igsh=MWY2ZzBra25ia2NpMQ%3D%3D&utm_source=qr"
+              target="_blank"
+              rel="noreferrer"
+              className="chat-option figual-link"
+            >
+              📸 Follow on Instagram
+            </a>
+          </div>
         </div>
       )}
     </div>
