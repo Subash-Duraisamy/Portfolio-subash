@@ -10,6 +10,7 @@ export default function ChatBotFloating() {
 
   const speak = (text) => {
     if (!window.speechSynthesis) return;
+
     window.speechSynthesis.cancel();
     const utter = new SpeechSynthesisUtterance(text);
     utter.rate = 0.95;
@@ -17,20 +18,26 @@ export default function ChatBotFloating() {
     window.speechSynthesis.speak(utter);
   };
 
+  // ✅ FIXED: exhaustive-deps compliant (Netlify safe)
   useEffect(() => {
     if (open && !spoken) {
-      speak("Hi, I am Figual, an AI friend of Shoebash. What do you want now?");
+      speak(
+        "Hi, I am Figual, an AI friend of Subash. What do you want now?"
+      );
       setSpoken(true);
     }
-    if (!open) setSpoken(false);
-  }, [open]);
+
+    if (!open && spoken) {
+      setSpoken(false);
+    }
+  }, [open, spoken]); // 🔑 IMPORTANT FIX
 
   return (
     <div className="chatbot-wrapper">
       {/* 🔹 FLOATING IMAGE BUTTON */}
       <button
         className="chatbot-btn chatbot-img-btn"
-        onClick={() => setOpen(!open)}
+        onClick={() => setOpen((prev) => !prev)}
         aria-label="Figual AI"
       >
         {open ? (
@@ -58,23 +65,22 @@ export default function ChatBotFloating() {
           </div>
 
           <p className="figual-intro">
-            AI friend of <strong>Subash</strong><br />
-            
+            AI friend of <strong>Subash</strong>
           </p>
 
           <div className="chat-buttons">
             <a
-              href="mailto:subash@email.com"
+              href="mailto:iamyourjasper@gmail.com"
               className="chat-option figual-link"
             >
-              Email Subash at iamyourjasper@gmail.com
+              📧 Email Subash
             </a>
 
             <button
               className="chat-option"
               onClick={() => alert("Enroll clicked 🚀")}
             >
-              🧾 Enroll with Figual (soon will be available)
+              🧾 Enroll with Figual (soon)
             </button>
 
             <a
@@ -87,7 +93,7 @@ export default function ChatBotFloating() {
             </a>
 
             <a
-              href="https://www.instagram.com/subash_official_insta?igsh=MWY2ZzBra25ia2NpMQ%3D%3D&utm_source=qr"
+              href="https://www.instagram.com/subash_official_insta"
               target="_blank"
               rel="noreferrer"
               className="chat-option figual-link"
